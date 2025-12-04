@@ -17,12 +17,19 @@ def set_membership():
 
 st.set_page_config(page_title="GDGC Info Chatbot", page_icon="logo.png", layout="centered")
 
+
 # -------------------------------  
 # CSS  
 # -------------------------------
 def add_css():
     st.markdown("""
         <style>
+            .chat-container {
+                max-height: 500px;
+                overflow-y: auto;
+                padding: 10px;
+                border-radius: 10px;
+              }
             body { background-color: #0d0d0d; }
 
             .header-title {
@@ -168,32 +175,34 @@ if st.session_state.membership is True and not st.session_state.member_intro_don
     st.stop()
 
 # -------------------------------
-# Show Chat History
+# CHAT SECTION — FIXED LAYOUT
 # -------------------------------
-for msg in st.session_state.messages:
-    if msg["role"] == "user":
-        st.markdown(f"<div class='user-message'>{msg['content']}</div>", unsafe_allow_html=True)
-    else:
-        st.markdown(f"<div class='bot-message'>{msg['content']}</div>", unsafe_allow_html=True)
 
-# -------------------------------
-# CHATBOX — Always Visible
-# -------------------------------
-user_input = st.text_input("Ask me anything about GDGC...")
+chat_container = st.container()   
+with chat_container:
+    
+    # Show previous messages
+    for msg in st.session_state.messages:
+        if msg["role"] == "user":
+            st.markdown(f"<div class='user-message'>{msg['content']}</div>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<div class='bot-message'>{msg['content']}</div>", unsafe_allow_html=True)
 
-if user_input:
-    st.session_state.messages.append({"role": "user", "content": user_input})
-    st.markdown(f"<div class='user-message'>{user_input}</div>", unsafe_allow_html=True)
+    # Input stays BOTTOM of chat
+    user_input = st.text_input("Ask me anything about GDGC...", key="chat_input")
 
-    # Ticket keywords
-    help_keywords = ["help", "issue", "problem", "support", "not working", "raise a ticket"]
+    if user_input:
+        st.session_state.messages.append({"role": "user", "content": user_input})
 
-    if any(k in user_input.lower() for k in help_keywords):
-        ticket_id = ticket_system.create_ticket(user_input)
-        reply = f"📝 Your support ticket has been created! Ticket ID: **{ticket_id}**."
-    else:
-        chunks = retriever.retrieve(user_input)
-        reply = call_llm(chunks, user_input)
+        help_keywords = ["help", "issue", "problem", "support", "not working", "raise a ticket"]
 
-    st.session_state.messages.append({"role": "assistant", "content": reply})
-    st.markdown(f"<div class='bot-message'>{reply}</div>", unsafe_allow_html=True)
+        if any(k in user_input.lower() for k in help_keywords):
+            ticket_id = ticket_system.create_ticket(user_input)
+            reply = f"📝 Your support ticket has been created! Ticket ID: **{ticket_id}**."
+        else:
+            chunks = retriever.retrieve(user_input)
+            reply = call_llm(chunks, user_input)
+
+        st.session_state.messages.append({"role": "assistant", "content": reply})
+        
+        st.rerun()   # rerun chat loop
