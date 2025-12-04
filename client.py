@@ -1,10 +1,19 @@
 import os
 import requests
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+# --- API KEY SETUP ---
+try:
+    OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+except:
+    OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+
+if not OPENROUTER_API_KEY:
+    st.error("❌ API Key not found! Add it to Streamlit Secrets.")
+    st.stop()
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -17,35 +26,40 @@ def call_llm(context_chunks, user_query):
     """
     Sends the RAG context + user query to OpenRouter LLM.
     """
-
     context = "\n\n".join(context_chunks)
 
+    # --- THE FIX IS IN THIS PROMPT ---
     prompt = f"""
- You are GDGC InfoBot. Use ONLY the information in the context below.
- If the answer is not found in the context, say:
- "I'm sorry, I don't have information about that."
+ You are GDGC InfoBot, a helpful assistant for Google Developer Groups on Campus.
+ Use ONLY the information in the context below to answer.
 
-CONTEXT:
-{context}
+ FORMATTING RULES:
+ 1. If listing items (like events or teams), use Bullet Points.
+ 2. Use **Bold** for specific names, dates, or titles.
+ 3. Do not squish everything into one paragraph.
 
-USER QUESTION:
-{user_query}
+ CONTEXT:
+ {context}
 
-ANSWER:
-"""
+ USER QUESTION:
+ {user_query}
+
+ ANSWER:
+ """
 
     payload = {
         "model": "google/gemma-2-9b-it",
         "messages": [
-            {"role": "system", "content": "Answer using ONLY the provided context."},
+            {"role": "system", "content": "You are a helpful assistant. Follow formatting rules strictly."},
             {"role": "user", "content": prompt}
         ],
-        "temperature": 0.2
+        "temperature": 0.3 # Slightly higher creativity for better formatting
     }
 
-    response = requests.post(OPENROUTER_URL, json=payload, headers=HEADERS)
-
-    if response.status_code != 200:
-        return f"Error: {response.text}"
-
-    return response.json()["choices"][0]["message"]["content"]
+    try:
+        response = requests.post(OPENROUTER_URL, json=payload, headers=HEADERS)
+        if response.status_code != 200:
+            return f"Error: {response.text}"
+        return response.json()["choices"][0]["message"]["content"]
+    except Exception as e:
+        return f"Error connecting to LLM: {str(e)}"
