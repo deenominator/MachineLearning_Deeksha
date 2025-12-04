@@ -69,7 +69,5 @@ We are constantly working to improve the bot. Planned features include:
 
     <img width="1365" height="558" alt="image" src="https://github.com/user-attachments/assets/2f52c0be-fc55-4116-989c-dd85cb214108" />
 
+    <img width="954" height="381" alt="image" src="https://github.com/user-attachments/assets/3aa6f31d-d317-4c55-baf8-efb7db45b45b" />
 
-
----
-*Built with ❤️ by the GDGC Tech Team.*
