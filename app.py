@@ -89,6 +89,18 @@ add_css()
 load_logo()
 
 # -------------------------------
+# SIDEBAR - RESET BUTTON
+# -------------------------------
+with st.sidebar:
+    st.write("### Options")
+    
+    # This button resets the app state
+    if st.button("Start Over / Change Role"):
+        for key in ["membership", "member_intro_done", "public_intro_done", "messages", "name", "team"]:
+            if key in st.session_state:
+                del st.session_state[key]
+        st.rerun()
+# -------------------------------
 # Header
 # -------------------------------
 st.markdown("<div class='header-title'>GDGC Information Chatbot</div>", unsafe_allow_html=True)
@@ -159,18 +171,30 @@ if st.session_state.membership is True and not st.session_state.member_intro_don
     ]
     team = st.selectbox("Your team:", [""] + teams, key="member_team")
 
-    if st.button("Continue", key="member_continue"):
-        st.session_state.name = name
-        st.session_state.team = team
+   # Create two columns for buttons
+    col1, col2 = st.columns([1, 4])
+    
+    with col1:
+        # BACK BUTTON
+        if st.button("⬅ Back"):
+            st.session_state.membership = None # Reset choice
+            st.rerun()
 
-        # Personalized intro
-        if name:
-            intro = f"Hi {name}! 👋 Great to have someone from the **{team or 'GDGC'} Team**!"
-        else:
-            intro = "Welcome GDGC Member! 👋 How can I assist you today?"
+    with col2:
+        # CONTINUE BUTTON
+        if st.button("Continue", key="member_continue"):
+            st.session_state.name = name
+            st.session_state.team = team
 
-        st.session_state.messages.append({"role": "assistant", "content": intro})
-        st.session_state.member_intro_done = True
+            # Personalized intro
+            if name:
+                intro = f"Hi {name}! 👋 Great to have someone from the **{team or 'GDGC'} Team**!"
+            else:
+                intro = "Welcome GDGC Member! 👋 How can I assist you today?"
+
+            st.session_state.messages.append({"role": "assistant", "content": intro})
+            st.session_state.member_intro_done = True
+            st.rerun()
 
     st.stop()
 
@@ -189,20 +213,30 @@ with chat_container:
             st.markdown(f"<div class='bot-message'>{msg['content']}</div>", unsafe_allow_html=True)
 
     # Input stays BOTTOM of chat
-    user_input = st.text_input("Ask me anything about GDGC...", key="chat_input")
-
+  # Define a function to handle the submission
+def process_input():
+    user_input = st.session_state.chat_input
     if user_input:
+        # 1. Append User Message
         st.session_state.messages.append({"role": "user", "content": user_input})
-
+        
+        # 2. Process Logic
         help_keywords = ["help", "issue", "problem", "support", "not working", "raise a ticket"]
-
         if any(k in user_input.lower() for k in help_keywords):
             ticket_id = ticket_system.create_ticket(user_input)
-            reply = f"📝 Your support ticket has been created! Ticket ID: **{ticket_id}**."
+            reply = f"📝 Ticket created! ID: **{ticket_id}**."
         else:
             chunks = retriever.retrieve(user_input)
+            with st.expander("🕵️ Debug: What the bot is reading"):
+              for i, chunk in enumerate(chunks):
+                st.write(f"**Chunk {i+1}:** {chunk}")
             reply = call_llm(chunks, user_input)
 
+        # 3. Append Bot Reply
         st.session_state.messages.append({"role": "assistant", "content": reply})
-        
-        st.rerun()   # rerun chat loop
+
+        # 4. Clear the input (Allowed here because it's inside a callback)
+        st.session_state.chat_input = ""
+
+# Link the function to the widget using 'on_change'
+st.text_input("Ask me anything about GDGC...", key="chat_input", on_change=process_input)
