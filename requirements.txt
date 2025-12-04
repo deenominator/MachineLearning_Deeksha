@@ -1,6 +1,9 @@
 streamlit
 faiss-cpu
 sentence-transformers
-numpy
+openai
 python-dotenv
+numpy
+torch
+tqdm
 requests
