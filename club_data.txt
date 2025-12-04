@@ -1,0 +1,136 @@
+Google Developer Group on Campus (GDGC) - Information Document
+
+About GDGC:
+Google Developer Group on Campus are university-based community groups for
+students interested in Google developer technologies. Students from all
+undergraduate or graduate programs with an interest in growing as a developer are
+welcome. By joining a GDGC, students grow their knowledge in a peer-to-peer
+learning environment and build solutions for local businesses and their communities.
+It is open to any student, ranging from novice developers who are just starting, to
+advanced developers who want to further enhance their skills. It is intended to be a
+platform for students to learn and collaborate as they solve problems around them
+with the help of technology.
+
+Opportunities GDGC Provides:
+- Learn developer technologies through workshops and events.
+- Gain industry-like experience by solving real-world problems.
+- Showcase prototypes and solutions to the community and industry leaders.
+- Get inspired by success stories and learn from peers.
+- Participate in global competitions such as Google Solution Challenge.
+
+Vision:
+To create a community of passionate developers who learn, grow, collaborate, and use technology to solve real-world problems.
+
+Mission:
+To provide resources, mentorship, and opportunities for students to grow as developers and build a strong tech community.
+
+-----------------------------------------------------
+PAST EVENTS
+-----------------------------------------------------
+
+1) Tech Winter Break (Online Two-Day Event)
+Tech Winter Break 2024 is a two-day online tech fest hosted by GDGC VIT Bhopal. It includes hands-on workshops, expert guidance, and preparation for the Google Solution Challenge 2025.
+
+Day 1: Web Development (14th Dec, 1:30 PM – 3:30 PM)
+- Learn to build web apps using React and Flask.
+- Explore modern web development tools and frameworks.
+- Understand UI/UX design principles.
+
+Day 2: Flutter Apps (15th Dec, 6:00 PM – 8:00 PM)
+- Learn Flutter and Dart.
+- Build cross-platform mobile applications.
+- Understand widgets and mobile UI comp
+
+Takeaways:
+- Build real web and mobile apps.
+- Receive certificates and exclusive resources.
+- Get mentorship from industry experts.
+- Prepare for the Google Solution Challenge.
+
+Why Join?
+
+1. Learn by Doing: Master industry-leading tools like React, Node.js, and Flutter
+to build next-gen web and mobile apps.
+2. Get Ahead: Boost your portfolio with certificates and exclusive resources, and
+stay one step ahead with guidance from tech experts.
+3. Connect and Collaborate: Meet fellow tech enthusiasts, share ideas, and find
+your next collaborator or mentor.
+4. Shape Your Future: Prepare yourself for real-world challenges and
+opportunities, including Google’s global competition.
+
+Who Should Join?
+Whether you're:
+1. A beginner ready to take your first steps in tech.
+2. A student looking to level up your skills.
+3. A developer eager to explore modern frameworks.
+4. If you’ve got the passion, we’ve got the platform.
+
+What You’ll Gain
+1. Day 1: Learn to create unforgettable web apps using React and Node.js—turn
+your ideas into digital art.
+2. Day 2: Master Flutter to build stunning, cross-platform apps that feel at home
+on any device.
+3. Certifications, practical knowledge, and expert guidance to take your tech
+journey to the next level.
+4. A head start in Google’s global challenge and the tools to build something
+extraordinary.
+
+What You’ll Need
+1. A laptop or desktop with a reliable internet connection.
+2. Basic programming know-how
+
+Why Wait?
+
+This isn’t just another online event; it’s a two-day experience designed to help you
+unlock your potential, meet like-minded innovators, and embrace the future of
+development—all without leaving your cosy corner.
+
+Special Requirements for Day 2 (Flutter Workshop):
+Windows Setup Guide (YouTube): https://youtu.be/mMeQhLGD-og?si=JAGtb9gokApCL8Vc
+MacOS Setup Guide (YouTube): https://youtu.be/kLpFZm_3Epk?si=Zb4eVIXj9eYBrgFQ
+
+-------------------------------------------
+
+2) Google Olympics 2k25
+Google Olympics 2k25 is GDGC’s flagship competition where teams of four represent countries and compete in technical and strategic challenges. The event involves logic puzzles, coding challenges, teamwork tasks, and unexpected plot twists. Winners earn campus-wide recognition.
+
+-------------------------------------------
+
+3) Build With AIs – VITB Edition
+Build With AIs is part of a global series aimed at helping developers learn AI and machine learning tools from Google. The event includes interactive workshops, collaborations, hands-on challenges, and project showcases. It is suitable for beginners and experienced coders.
+
+-----------------------------------------------------
+TEAM LEADS
+-----------------------------------------------------
+
+Core Team:
+- Tech Lead: Atharv Sathe
+- Tech Co Lead: Shubh Mehrotra
+- Non Tech Lead: Akhil Thirunalveli
+- Non Tech Co Lead: Parth Bhanti
+- Organizer: Anushree Jaiswal
+
+Technical Teams:
+- Machine Learning Team Lead: Arihant
+- Machine Learning Team Co Lead: Sahil
+- Web Development Team Lead: Shashwat
+- Web Development Team Co Lead: Ishank
+- Android Lead: Sagnik
+- Women Techmakers Lead: Sania
+- Women Techmakers Co Lead: Abhilasha
+- Blockchain Lead: Sujoy De
+- Blockchain Co Lead: Harsh Raj
+
+Management & Outreach:
+- Videography Lead: Sambhav
+- Videography Co Lead: Devansh
+- Events & Outreach Lead: Dhruv Seth
+- Events & Outreach Co Lead: Anushri Bajpai
+- Content Team Lead: Yoshita
+- Content Team Co Lead: Kshitij
+- Design Lead: Priyansh
+- Design Co Lead: Ritika
+
+-----------------------------------------------------
+END OF DOCUMENT
+-----------------------------------------------------
