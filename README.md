@@ -1,38 +1,38 @@
-# 🤖 GDGC Info Chatbot
+# GDGC Info Chatbot
 
 **GDGC Info Chatbot** is an AI-powered assistant designed for **Google Developer Groups on Campus (VIT Bhopal)**. It helps students navigate club activities, offering specific workflows for members and non-members, and provides a direct line of support through a ticketing system.
 
-## 🚀 Key Features
+## Key Features
 
-### 1. 👥 Smart User Segmentation
+### 1. Smart User Segmentation
 Upon launching, the bot asks if you are a current GDGC member:
 * **For Non-Members:** The bot provides a warm **Introductory Message**, explaining what GDGC is, our vision, and how to get involved.
 * **For Members:** Users get a personalized experience. They can optionally enter their **Name** and **Team** (e.g., Web Dev, ML, Design) to receive a custom greeting.
 
-### 2. 🧠 AI-Powered Queries (RAG)
+### 2. AI-Powered Queries (RAG)
 Powered by **RAG (Retrieval-Augmented Generation)**, the bot answers questions using actual club data. It provides accurate information on:
 * Upcoming events and workshops.
 * **Club Leadership:** You can ask for the **Lead and Co-Lead** details to get in contact with them directly.
 * Membership benefits and team structures.
 
-### 3. 🎫 Support Ticket System
+### 3. Support Ticket System
 If the AI cannot resolve a specific query or if you face an issue, the bot allows you to **raise a support ticket**.
 * Tickets are logged with a timestamp and ID.
 * Admins can review `tickets.csv` to resolve pending issues.
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Frontend:** Streamlit
 * **LLM Integration:** OpenRouter API (Gemma-2-9b-it)
 * **Vector Search:** FAISS (Facebook AI Similarity Search)
 * **Embeddings:** SentenceTransformers (`all-MiniLM-L6-v2`)
 
-## 🔮 Future Enhancements
+## Future Enhancements
 We are constantly working to improve the bot. Planned features include:
-* **✨ Enhanced UI:** A more polished, modern chat interface.
-* **😊 Emotion Detection:** Analyzing user sentiment to provide more empathetic responses.
-* **📅 Event Integration:** Real-time calendar syncing for upcoming events.
+* ** Enhanced UI:** A more polished, modern chat interface.
+* ** Emotion Detection:** Analyzing user sentiment to provide more empathetic responses.
+* ** Event Integration:** Real-time calendar syncing for upcoming events.
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 1.  **Clone the Repository**
     ```bash
