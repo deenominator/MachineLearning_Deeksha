@@ -227,9 +227,6 @@ def process_input():
             reply = f"📝 Ticket created! ID: **{ticket_id}**."
         else:
             chunks = retriever.retrieve(user_input)
-            with st.expander("🕵️ Debug: What the bot is reading"):
-              for i, chunk in enumerate(chunks):
-                st.write(f"**Chunk {i+1}:** {chunk}")
             reply = call_llm(chunks, user_input)
 
         # 3. Append Bot Reply
@@ -240,3 +237,4 @@ def process_input():
 
 # Link the function to the widget using 'on_change'
 st.text_input("Ask me anything about GDGC...", key="chat_input", on_change=process_input)
+
