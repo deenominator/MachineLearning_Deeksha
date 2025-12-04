@@ -3,6 +3,17 @@ from client import call_llm
 from retriever import Retriever
 from ticket_system import TicketSystem
 import base64
+def set_membership():
+    choice = st.session_state.member_choice
+
+    if choice == "No, I'm not a member":
+        st.session_state.membership = False
+        st.session_state.public_intro_done = False
+
+    elif choice == "Yes, I'm a member":
+        st.session_state.membership = True
+        st.session_state.member_intro_done = False
+
 
 st.set_page_config(page_title="GDGC Info Chatbot", page_icon="logo.png", layout="centered")
 
@@ -101,53 +112,51 @@ if "public_intro_done" not in st.session_state:
 retriever = Retriever()
 ticket_system = TicketSystem()
 
-# -------------------------------
-# STEP 1 — ARE YOU A MEMBER?
-# -------------------------------
 if st.session_state.membership is None:
-    choice = st.radio(
+
+    st.radio(
         "Are you a GDGC member?",
         ["Select", "No, I'm not a member", "Yes, I'm a member"],
-        index=0
+        index=0,
+        key="member_choice",
+        on_change=set_membership   
     )
-
-    if choice == "No, I'm not a member":
-        st.session_state.membership = False
-    elif choice == "Yes, I'm a member":
-        st.session_state.membership = True
 
     st.stop()
 
 # -------------------------------
-# STEP 2 — NON-MEMBER INTRO
+# FIXED — STEP 2 — NON-MEMBER INTRO
 # -------------------------------
 if st.session_state.membership is False and not st.session_state.public_intro_done:
+
     intro = (
         "✨ **Welcome to GDGC (Google Developer Groups on Campus) VIT Bhopal!**\n\n"
         "We conduct workshops, hackathons, study jams, and offer mentorship.\n"
         "Feel free to ask me anything about events, teams, roles, and how to join!"
     )
+
     st.session_state.messages.append({"role": "assistant", "content": intro})
     st.session_state.public_intro_done = True
 
 # -------------------------------
-# STEP 2 — MEMBER DETAILS (OPTIONAL)
+# FIXED — STEP 2 — MEMBER DETAILS (OPTIONAL)
 # -------------------------------
-teams = [
-    "Machine Learning", "Android", "Web development", "Women Techmaker",
-    "content", "design", "videography", "blockchain"
-]
-
 if st.session_state.membership is True and not st.session_state.member_intro_done:
+
     st.markdown("### Member Details (Optional)")
 
-    name = st.text_input("Your name:")
-    team = st.selectbox("Your team:", [""] + teams)
+    name = st.text_input("Your name:", key="member_name")
+    teams = [
+        "Machine Learning", "Android", "Web Development", "Women Techmaker",
+        "Content", "Design", "Videography", "Blockchain"
+    ]
+    team = st.selectbox("Your team:", [""] + teams, key="member_team")
 
-    if st.button("Continue"):
+    if st.button("Continue", key="member_continue"):
         st.session_state.name = name
         st.session_state.team = team
 
+        # Personalized intro
         if name:
             intro = f"Hi {name}! 👋 Great to have someone from the **{team or 'GDGC'} Team**!"
         else:
@@ -188,4 +197,3 @@ if user_input:
 
     st.session_state.messages.append({"role": "assistant", "content": reply})
     st.markdown(f"<div class='bot-message'>{reply}</div>", unsafe_allow_html=True)
-
