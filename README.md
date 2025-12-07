@@ -1,5 +1,5 @@
 # GDGC Info Chatbot
-https://machinelearningdeeksha-gdgc.streamlit.app/
+## Live link: https://machinelearningdeeksha-gdgc.streamlit.app/
 **GDGC Info Chatbot** is an AI-powered assistant designed for **Google Developer Groups on Campus (VIT Bhopal)**. It helps students navigate club activities, offering specific workflows for members and non-members, and provides a direct line of support through a ticketing system.
 
 ## Key Features
