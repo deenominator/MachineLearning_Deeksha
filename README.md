@@ -62,7 +62,7 @@ We are constantly working to improve the bot. Planned features include:
     streamlit run app.py
     ```
    
-    img width="1365" height="610" alt="image" src="https://github.com/user-attachments/assets/0d6396b3-bd9b-46e5-915c-01cd079d4da0" />
+    <img width="1365" height="610" alt="image" src="https://github.com/user-attachments/assets/0d6396b3-bd9b-46e5-915c-01cd079d4da0" />
 
     <img width="1365" height="602" alt="image" src="https://github.com/user-attachments/assets/99c47ddc-20d4-4fb2-a992-daf7e05807c8" />
 
