@@ -61,13 +61,20 @@ We are constantly working to improve the bot. Planned features include:
     ```bash
     streamlit run app.py
     ```
-    <img width="1365" height="602" alt="image" src="https://github.com/user-attachments/assets/39186f07-19e9-4176-ae87-4d23b714e8d8" />
-    
-    <img width="1356" height="585" alt="image" src="https://github.com/user-attachments/assets/c5181130-a91e-4fe2-91f5-27cdccd40e75" />
+   
+    img width="1365" height="610" alt="image" src="https://github.com/user-attachments/assets/0d6396b3-bd9b-46e5-915c-01cd079d4da0" />
 
-    <img width="988" height="521" alt="image" src="https://github.com/user-attachments/assets/6aaf1ca1-303b-431c-8bc6-589feee1d71c" />
+    <img width="1365" height="602" alt="image" src="https://github.com/user-attachments/assets/99c47ddc-20d4-4fb2-a992-daf7e05807c8" />
 
-    <img width="1365" height="558" alt="image" src="https://github.com/user-attachments/assets/2f52c0be-fc55-4116-989c-dd85cb214108" />
+    <img width="1365" height="608" alt="image" src="https://github.com/user-attachments/assets/eea9c2f6-59b5-48c1-b8df-fd6247b1ff3b" />
 
-    <img width="954" height="381" alt="image" src="https://github.com/user-attachments/assets/3aa6f31d-d317-4c55-baf8-efb7db45b45b" />
+    <img width="1365" height="605" alt="image" src="https://github.com/user-attachments/assets/3189b6bd-263f-4994-b3e0-e17e5fcba6f4" />
+
+    <img width="1358" height="616" alt="image" src="https://github.com/user-attachments/assets/0b21a2fa-0b28-4e35-bbe2-336b7937aaaa" />
+
+    <img width="1365" height="597" alt="image" src="https://github.com/user-attachments/assets/bf3b4b1f-c291-4664-b5e8-5b9c327eaaae" />
+
+
+
+
 
